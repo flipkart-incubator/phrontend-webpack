@@ -1,5 +1,7 @@
 # phrontend-webpack
 
+[![Build Status](https://travis-ci.org/flipkart-incubator/phrontend-webpack.svg?branch=master)](https://travis-ci.org/flipkart-incubator/phrontend-webpack)
+
 A webpack config maker
 
 ## Options
