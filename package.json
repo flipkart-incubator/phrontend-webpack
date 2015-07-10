@@ -1,0 +1,55 @@
+{
+  "name": "phrontend-webpack",
+  "version": "0.0.1",
+  "description": "A webpack config maker for phrontend apps",
+  "main": "lib/webpack-config.js",
+  "scripts": {
+    "build": "babel src --out-dir lib --copy-files",
+    "lint": "eslint src/",
+    "prepublish": "in-publish && verify-git-tag -v && npm run build || in-install",
+    "test": "mocha --compilers js:babel/register",
+    "watch": "babel src --out-dir lib --copy-files --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/flipkart-incubator/phrontend-webpack"
+  },
+  "keywords": [
+    "phrontend",
+    "phrontend-webpack",
+    "webpack"
+  ],
+  "license": "Apache-2.0",
+  "bugs": "https://github.com/flipkart-incubator/phrontend-webpack/issues",
+  "homepage": "https://github.com/flipkart-incubator/phrontend-webpack",
+  "dependencies": {
+    "babel-loader": "^5.1.4",
+    "css-loader": "^0.14.5",
+    "cssnext": "^1.7.0",
+    "express": "^4.13.1",
+    "express-http-proxy": "^0.6.0",
+    "extract-text-webpack-plugin": "^0.8.2",
+    "image-size-loader": "^0.6.0",
+    "imports-loader": "^0.6.4",
+    "json-loader": "^0.5.2",
+    "node-libs-browser": "^0.5.2",
+    "postcss-loader": "^0.5.0",
+    "postcss-mixins": "^0.3.0",
+    "postcss-nested": "^0.3.2",
+    "postcss-simple-vars": "^0.3.0",
+    "react-hot-loader": "^1.2.7",
+    "style-loader": "^0.12.3",
+    "webpack": "^1.9.11",
+    "webpack-dev-middleware": "^1.0.11",
+    "webpack-dev-server": "^1.9.0"
+  },
+  "devDependencies": {
+    "babel": "^5.5.8",
+    "babel-eslint": "^3.1.18",
+    "eslint": "^0.23.0",
+    "in-publish": "^1.1.1",
+    "mocha": "^2.2.5",
+    "should": "^7.0.1",
+    "verify-git-tag": "^0.3.0"
+  }
+}
