@@ -1,20 +1,26 @@
 language: node_js
 node_js:
 - '0.12'
-- '0.10'
 cache:
   directories:
   - node_modules
 before_install:
 - npm install -g npm@3
+- npm install -g codeclimate-test-reporter
 after_install:
 - npm run lint
 before_script:
 - npm run build
 script:
-- npm test
+- npm run cover
+after_script:
+- codeclimate-test-reporter < coverage/lcov.info
 matrix:
   fast_finish: true
 notifications:
   slack:
     secure: 3RSMsu5V9qzduxvTYaW5pRxiXW1Jr+jrQ7oYCP7kaeoeyJs8wyzgg2RFU/tAy4y0Pj6LaG70vmQnWVvFdnVD80JyI3WSdNaJvd18gy0TzlP0wgiegSngTg+wGo5e0uMhLU97oJfmnbLOg0tMbkM1dYQlO7u8D/KeXc1Tp2mb/erhdqK1a2GVMELks7llcXq7GS2UIXiqnDQs8f5xxnbTiJXjkg0EblIY0mB9utMMx6Z196minzikylcfX8lMtntAYHM7HYFhIQmkKKrAXv1WhvpQYMWFGAtHE3FhBNEf62e32mYLpVOoaSA8Xvh/M3djPLV/aHPmEKy6qmrm2GxPopFm9RBWQllpJpkM69KlhK+StvUA8bMjV4JOe9LX1GK5mRwo3pH6R/kltWP+D0T4TdO0LPwu18FQbersi/M9+lOSgpkmt4O2aohj7xAmX4nyVio9CAFDjMRVMDEM9dx24wMLSoR0994DWDe9pI1EAzJzeK/TPKszIJoVhapRzIDHv/aP+Jp1mZ0bFWWv62JGtQq5II5nrYfHUaSj4xZQ58PZfYJ1TZfk69PrZdGPVdtAu7GmUjf2gkc4N60LaMV37c4ceYmYlZxu9qcm+y+g0QF3DwN2TXGbWRplakWT4Y+Dfb3hXPg8OUi5IyMwE3WpMuleXDG8R2UUbQPgycMl1VE=
+env:
+  global:
+    # codeclimate
+    secure: XDGfa1STewAsCEXCCHG/5c3hPZII+99lmIrLcGPULEQ5uVIutGsDqSYX3UQbQFINObSPt0ruW9sL7hbRJcWUN1adHzLz2vDZPqUQ8x1PPCvtj2s3UR12l2KRq1bE/XPZ9tNr56sWb1IDCEkdF7zCiWqo8gkHeOPThhoMGXZAXtYc8reiLqgNeRGI3MMK6tct20YuxJ6KJ6YEHordQTEFEzsYv//xNHgzgisCnLOg8aCfR9ndM1O9APiuS9/twlxnv4cmg7/VhezxHLrUL0FIi5K5AvAYPplRwvhkQurZeNrcDadaNg2rw8UBg5Hjwg+GI9jNXcMLcxoAz50kI52uyztI8+4CNfks0EUFXCaOiKp10GtuOBYLlbefecH3MYe6LWtE6lsbi4Q0oiFneiJPQ2e2+tVKYZbDsozgME1tw4uWCue+xQiokqq7ofbCxt7E7fuuomg/xXPAlTmIKkYd0zKCRbwKs5PFrNSow1oj1X2FXv+W/7gXT1OAHrpJDLMjpnSX7Zy7tj9cI/cjwRFB4pVXwA6afeCVM2BA/oGGCftKWxII1Q5mFVx9PvmMX+YpYmYgaQ1GYngpuwj2cn94yx1jfsPl0gj/sMXZOy/hPk1+rkJ5NfD/xuYXg+X6F+99Zs3xU1BTZOHQWHK++p0Tgc5WE0OhKI6rwmJS5sjD1pw=

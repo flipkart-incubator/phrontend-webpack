@@ -5,6 +5,7 @@
   "main": "lib/webpack-config.js",
   "scripts": {
     "build": "babel src --out-dir lib --copy-files",
+    "cover": "istanbul cover _mocha -- --compilers js:babel/register -R spec",
     "lint": "eslint src/",
     "prepublish": "in-publish && verify-git-tag -v && npm run build || in-install",
     "test": "mocha --compilers js:babel/register",
@@ -15,6 +16,7 @@
     "url": "https://github.com/flipkart-incubator/phrontend-webpack"
   },
   "engines": {
+    "node": ">=0.12.0",
     "npm": ">=3.0.0"
   },
   "keywords": [
@@ -51,6 +53,7 @@
     "babel-eslint": "^3.1.18",
     "eslint": "^0.23.0",
     "in-publish": "^1.1.1",
+    "istanbul": "^0.3.17",
     "mocha": "^2.2.5",
     "should": "^7.0.1",
     "verify-git-tag": "^0.3.0"
