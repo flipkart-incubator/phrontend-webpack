@@ -4,6 +4,14 @@
 
 A webpack config maker
 
+## Install
+
+```sh
+npm install phrontend-webpack --save
+```
+
+in your phrontend application.
+
 ## Options
 
 ##### `src : String<Path>`
