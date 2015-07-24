@@ -33,7 +33,7 @@
     "express": "^4.13.1",
     "express-http-proxy": "^0.6.0",
     "extract-text-webpack-plugin": "^0.8.2",
-    "image-size-loader": "^0.6.0",
+    "image-size-loader": "^0.7.0",
     "imports-loader": "^0.6.4",
     "json-loader": "^0.5.2",
     "node-libs-browser": "^0.5.2",
