@@ -1,6 +1,6 @@
 {
   "name": "phrontend-webpack",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A webpack config maker for phrontend apps",
   "main": "lib/webpack-config.js",
   "scripts": {
