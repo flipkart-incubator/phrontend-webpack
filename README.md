@@ -1,6 +1,6 @@
 # phrontend-webpack
 
-[![Build Status](https://travis-ci.org/flipkart-incubator/phrontend-webpack.svg?branch=master)](https://travis-ci.org/flipkart-incubator/phrontend-webpack) [![Code Climate](https://codeclimate.com/github/flipkart-incubator/phrontend-webpack/badges/gpa.svg)](https://codeclimate.com/github/flipkart-incubator/phrontend-webpack) [![Test Coverage](https://codeclimate.com/github/flipkart-incubator/phrontend-webpack/badges/coverage.svg)](https://codeclimate.com/github/flipkart-incubator/phrontend-webpack/coverage)
+[![Build Status](https://travis-ci.org/flipkart-incubator/phrontend-webpack.svg?branch=master)](https://travis-ci.org/flipkart-incubator/phrontend-webpack) [![Code Climate](https://codeclimate.com/github/flipkart-incubator/phrontend-webpack/badges/gpa.svg)](https://codeclimate.com/github/flipkart-incubator/phrontend-webpack) [![Test Coverage](https://codeclimate.com/github/flipkart-incubator/phrontend-webpack/badges/coverage.svg)](https://codeclimate.com/github/flipkart-incubator/phrontend-webpack/coverage) [![npm version](https://badge.fury.io/js/phrontend-webpack.svg)](http://badge.fury.io/js/phrontend-webpack)
 
 A webpack config maker
 
