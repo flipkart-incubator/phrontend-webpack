@@ -84,6 +84,7 @@ in your phrontend application.
 ## Example
 
 ```js
+var path = require('path');
 var makeConfig = require('phrontend-webpack');
 var __PROD__ = process.env.NODE_ENV==='production';
 var __DEV__  = !__PROD__;
