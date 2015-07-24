@@ -120,7 +120,7 @@ export default function MakeWebpackConfig(options) {
   if (cssLocalImports) plugins.push(new RestrictCssImportsPlugin());
 
   if (options.separateStylesheet) plugins.push(new Extract(
-    options.minimize ? 'bundle.[chunkhash].css' : 'bundle.css', { allChunks: true })
+    options.minimize ? 'bundle.[contenthash:20].css' : 'bundle.css', { allChunks: true })
     );
 
   if (options.minimize) plugins.push(new webpack.optimize.UglifyJsPlugin({
