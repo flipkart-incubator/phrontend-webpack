@@ -55,7 +55,7 @@ describe('minimize', function() {
       });
       let extract = config.plugins.reduce((p,c) => p ? p : (c instanceof Extract ? c : false), false);
       assert(extract !== void 0)
-      should(extract.filename).equal('bundle.[chunkhash].css');
+      should(extract.filename).equal('bundle.[contenthash:20].css');
     });
   });
 
