@@ -96,7 +96,7 @@ module.exports = makeConfig({
   minimize: __PROD__,
   hot: __DEV__,
   separateStylesheet: __PROD__,
-  transpile: 'my-other-module'
+  transpile: 'my-other-module',
   cssLocalImports: true,
   moduleDirectories: path.join(__dirname, 'components'),
   dedupe: __PROD__,
