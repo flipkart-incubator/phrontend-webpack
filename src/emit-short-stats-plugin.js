@@ -13,7 +13,8 @@
  *   < // file = current.version
  *   < {
  *   <   js: ['app.198uhc92h323239c.bundle.js'],
- *   <   css: ['bundle.208asndf082nasldk23.css']
+ *   <   css: ['bundle.208asndf082nasldk23.css'],
+*    <   images: ['example-f1df98cf.png']
  *   < }
  *
  */
@@ -24,17 +25,23 @@ import path from 'path';
 export default class EmitShortStatsPlugin {
   apply(compiler) {
     compiler.plugin('after-compile', function(compilation, callback) {
-      var cssarray = [],
-        jsarray = [],
-        jsfiles = {};
+      var cssArray = [],
+        jsArray = [],
+        jsFiles = {},
+        imgArray = [],
+        imgRegExp = (/\.(gif|jpg|jpeg|png|webp|svg)$/i);
 
       Object.keys(compilation.assets).map(function(a) {
-        switch (path.extname(a)) {
-          case '.js':
-          jsfiles[a.split('.')[0]] = a;
+        let ext = path.extname(a);
+        switch (true) {
+          case ext === '.js':
+          jsFiles[a.split('.')[0]] = a;
           break;
-          case '.css':
-          cssarray.push(a);
+          case ext === '.css':
+          cssArray.push(a);
+          break;
+          case imgRegExp.test(ext):
+          imgArray.push(a);
           break;
           default:
           // do nothing
@@ -45,8 +52,9 @@ export default class EmitShortStatsPlugin {
       jsarray.push(jsfiles['app']);
 
       var current = {
-        js: jsarray,
-        css: cssarray
+        js: jsArray,
+        css: cssArray,
+        images: imgArray
       };
 
       compilation.assets['current.version'] = new RawSource(JSON.stringify(current));
