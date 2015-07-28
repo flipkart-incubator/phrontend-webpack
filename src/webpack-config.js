@@ -17,12 +17,16 @@ import jsLoader from './js-loader';
 
 import loadersFromMap from './loaders-from-map';
 
+function isAbsolute(p) {
+  return path.resolve(p) === path.normalize(p);
+}
+
 export default function MakeWebpackConfig(options) {
 
   // validations
   if ('string' !== typeof options.src)
     throw new Error('src should be a string');
-  if (!path.isAbsolute(options.src))
+  if (!isAbsolute(options.src))
     throw new Error('src should be an absolute path');
 
   let src = options.src;
@@ -30,7 +34,7 @@ export default function MakeWebpackConfig(options) {
 
   // if the destination is a relative path,
   // then make it relative to `src`
-  if (!path.isAbsolute(dest)) dest = path.join(src, dest);
+  if (!isAbsolute(dest)) dest = path.join(src, dest);
 
   // we now support only one entry point - app, and is always fixed to index.js
   // an enhancement would be to read `src`/package.json .main
@@ -89,7 +93,7 @@ export default function MakeWebpackConfig(options) {
       mds = mds.concat(options.moduleDirectories);
     else if ('string' === typeof options.moduleDirectories)
       mds.push(options.moduleDirectories);
-    mds.map(md => resolve.root.push(path.isAbsolute(md) ? md : path.join(src, md)));
+    mds.map(md => resolve.root.push(isAbsolute(md) ? md : path.join(src, md)));
   }
 
   // the default loaders are required from this project
