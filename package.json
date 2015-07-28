@@ -15,7 +15,7 @@
     "url": "https://github.com/flipkart-incubator/phrontend-webpack"
   },
   "engines": {
-    "node": ">=0.12.0",
+    "node": ">=0.10.0",
     "npm": ">=3.0.0"
   },
   "keywords": [

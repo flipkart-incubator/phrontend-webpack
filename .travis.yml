@@ -1,11 +1,13 @@
 language: node_js
 node_js:
+- '0.10'
 - '0.12'
 cache:
   directories:
   - node_modules
 before_install:
 - npm install -g npm@3
+- npm install -g semver
 - npm install -g codeclimate-test-reporter
 before_script:
 - npm run lint
@@ -29,6 +31,6 @@ deploy:
   api_key:
     secure: s16St1Aaj5weWmJbRv/3w2/B2G+I0fuijkID9S1ZxF6X0gMOp09Ey90sC3qKJe14sOwts3E+Jc+p09MhGcyoBoN4af0pE2adDyDGp66LW8W/bXON7J43PpkFxshhAvAu6w4BZfYDdMsKs4D8nSpGy8JBAdpBXIzLYZJBM7re1MRb7GEOXoVR10hC5ERZpCwiFeAU+b+gqloD2zaAITLy0vaR0nL4tN8j26EupH19/y1okMy8bhyZYUVPDPo3DxVHjyu/4JjppWi191ZXKJxSA+dYfl8Ro+WDaAZucMjkEJlk9MRxnubBiSbWl6u8uljqO2tjljItkwX/AGDfGSZrqMgI2PSCMXYAAUHLmbJ4P1Kck5pBWc5cmyqqJfw/p3OJdSoCvVKnvQoyF1iVZVgnV7tq9p9dJ1dkYQnSJMR532TeVm4yNDabW/AKnV26wU8PUCi5m3/5bFhNgrRQfS2CQ4LH0PDOI0tOw4PQWj+hpH7WYDKs9ey06pPprCDeqtcLqD4NSRZiPkSyRlP4NPmu6W8UdQqESWgsV7AR3BJJ2Uf5DpUSBBuPoYLrmDroj4VdbG/1fT3tz1r9R1gYwTYfwGnxkpTdNPtFEaiDPInxctAGfbz1r7WtjuXoJMZv/GLwPCJgmM4MDleEIcqlUE/jDL29nh4Nm1bzDMgsqePoOQ4=
   on:
-    branch: master
     tags: true
     repo: flipkart-incubator/phrontend-webpack
+    condition: $(semver $TRAVIS_TAG) && $(node --version) == "0.12"*
