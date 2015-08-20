@@ -70,7 +70,8 @@ export default function MakeWebpackConfig(options) {
   // includes postcss-imports and autoprefixer
   let postcss = [
     cssnext({
-      browsers: options.browsers
+      browsers: options.browsers,
+      url: false
     }),
     PostcssSimpleVars,
     PostcssMixins,
