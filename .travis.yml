@@ -33,4 +33,4 @@ deploy:
   on:
     tags: true
     repo: flipkart-incubator/phrontend-webpack
-    condition: $(semver $TRAVIS_TAG) && $(node --version) == "0.12"*
+    condition: $(semver $TRAVIS_TAG) && $(node --version) == "v0.12"*
