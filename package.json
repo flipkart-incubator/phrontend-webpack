@@ -28,7 +28,7 @@
   "homepage": "https://github.com/flipkart-incubator/phrontend-webpack",
   "dependencies": {
     "babel-loader": "^5.1.4",
-    "css-loader": "^0.14.5",
+    "css-loader": "^0.16.0",
     "cssnext": "^1.7.0",
     "express": "^4.13.1",
     "express-http-proxy": "^0.6.0",
