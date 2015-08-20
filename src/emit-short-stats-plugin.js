@@ -49,7 +49,7 @@ export default class EmitShortStatsPlugin {
       });
 
       // TODO: support chunks
-      jsarray.push(jsfiles['app']);
+      jsArray.push(jsFiles['app']);
 
       var current = {
         js: jsArray,
