@@ -29,7 +29,7 @@ export default function startServers(config, {port = 3000} = {}) {
   let app = express();
 
   app.use('/public', proxy(`localhost:${port + 1}`, {
-    forwardPath: (req, res) => `/public/${url.parse(req.url).path}`
+    forwardPath: req => `/public/${url.parse(req.url).path}`
   }));
 
   app.get('/*', (req, res) => res.end(fs.readFileSync('index.html')));

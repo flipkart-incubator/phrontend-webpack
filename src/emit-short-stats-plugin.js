@@ -34,16 +34,16 @@ export default class EmitShortStatsPlugin {
       Object.keys(compilation.assets).map(function(a) {
         let ext = path.extname(a);
         switch (true) {
-          case ext === '.js':
+        case ext === '.js':
           jsFiles[a.split('.')[0]] = a;
           break;
-          case ext === '.css':
+        case ext === '.css':
           cssArray.push(a);
           break;
-          case imgRegExp.test(ext):
+        case imgRegExp.test(ext):
           imgArray.push(a);
           break;
-          default:
+        default:
           // do nothing
         }
       });
