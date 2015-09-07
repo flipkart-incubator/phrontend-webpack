@@ -23,8 +23,12 @@ import RawSource from 'webpack/lib/RawSource';
 import path from 'path';
 
 export default class EmitShortStatsPlugin {
+  constructor(opts) {
+    this.opts = opts;
+  }
   apply(compiler) {
-    compiler.plugin('after-compile', function(compilation, callback) {
+
+    compiler.plugin('after-compile', (compilation, callback) => {
       var cssArray = [],
         jsArray = [],
         jsFiles = {},
@@ -57,7 +61,9 @@ export default class EmitShortStatsPlugin {
         images: imgArray
       };
 
-      compilation.assets['current.version'] = new RawSource(JSON.stringify(current));
+      let outputFilename = this.opts.filename || 'current.version';
+
+      compilation.assets[outputFilename] = new RawSource(JSON.stringify(current));
       callback();
     });
   }
