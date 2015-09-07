@@ -110,7 +110,19 @@ export default function MakeWebpackConfig(options) {
   let plugins = [
     new webpack.DefinePlugin({
       'process.env': { 'NODE_ENV': JSON.stringify(process.env.NODE_ENV) }
-    })
+    }),
+    new webpack.IgnorePlugin(
+      /components\/(.*)\/index.js/
+    ),
+    new webpack.NormalModuleReplacementPlugin(
+      /components\/(.*)\/index.js/,
+      o => {
+        o.request = o.request.replace(
+          /index.js$/,
+          path.basename(path.dirname(o.userRequest)) + '.js'
+        );
+      }
+    )
   ];
 
   // by default, you'll be able to require css only from the same directory
