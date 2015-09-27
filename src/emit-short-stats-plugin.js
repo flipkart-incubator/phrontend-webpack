@@ -8,7 +8,9 @@
  *
  * Example:
  *
- *   > plugins: [new EmitShortStatsPlugin()]
+ *   > plugins: [new EmitShortStatsPlugin({
+ *   >   filename: 'current.version.json' // optional
+ *   > })]
  *
  *   < // file = current.version
  *   < {
@@ -61,7 +63,7 @@ export default class EmitShortStatsPlugin {
         images: imgArray
       };
 
-      let outputFilename = this.opts.filename || 'current.version';
+      let outputFilename = (this.opts && this.opts.filename) || 'current.version';
 
       compilation.assets[outputFilename] = new RawSource(JSON.stringify(current));
       callback();
