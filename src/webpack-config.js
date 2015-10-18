@@ -129,6 +129,7 @@ export default function MakeWebpackConfig(options) {
     );
 
   if (options.minimize) plugins.push(new webpack.optimize.UglifyJsPlugin({
+    comments: false,
     compress: {
       warnings: false,
       conditionals: true,

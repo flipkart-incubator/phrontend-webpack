@@ -11,7 +11,7 @@
 import Extract from 'extract-text-webpack-plugin';
 
 export default function (options) {
-  let cssLoader = 'css?sourceMap&modules';
+  let cssLoader = 'css?modules';
   if (!options.minimize)
     cssLoader += '&localIdentName=[path][name]_[local]_[hash:base64:6]';
 
