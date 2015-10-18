@@ -4,10 +4,9 @@
   "description": "A webpack config maker for phrontend apps",
   "main": "lib/webpack-config.js",
   "scripts": {
-    "build": "babel src --out-dir lib --copy-files",
+    "build": "babel src --out-dir lib --copy-files --loose",
     "cover": "istanbul cover _mocha -- --compilers js:babel/register -R spec",
     "lint": "eslint src/",
-    "prepublish": "babel src --out-dir lib --copy-files --loose",
     "test": "mocha --compilers js:babel/register",
     "watch": "babel src --out-dir lib --copy-files --watch"
   },
