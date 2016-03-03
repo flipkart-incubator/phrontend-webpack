@@ -158,6 +158,7 @@ export default function MakeWebpackConfig(options) {
     },
     postcss,
     debug: !!options.debug,
+    externals: options.externals || [],
     resolve,
     resolveLoader,
     plugins,
