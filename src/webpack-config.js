@@ -4,12 +4,15 @@ import webpack from 'webpack';
 // webpack plugins
 import Extract from 'extract-text-webpack-plugin';
 import RestrictCssImportsPlugin from './restrict-css-imports-plugin';
+import CompressionPlugin from 'compression-webpack-plugin';
+
 
 // Postcss plugins
 import PostcssNested from 'postcss-nested';
 import cssnext from 'cssnext';
 import PostcssMixins from 'postcss-mixins';
 import PostcssSimpleVars from 'postcss-simple-vars';
+
 
 // Custom stuff
 import cssLoader from './css-loader';
@@ -142,6 +145,14 @@ export default function MakeWebpackConfig(options) {
       join_vars: true
     }
   }));
+
+  if (options.gzip) {
+    plugins.push(new CompressionPlugin({
+      asset: '[path][query]',
+      algorithm: 'gzip',
+      test: /\.js$|\.css$|\.svg$/
+    }));
+  }
 
   // The proper way to dedupe would be,
   // 1. use npm@3 which flattens the tree
